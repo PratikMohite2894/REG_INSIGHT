@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from backend.chatbot.creeChat import router as cree_router
 
 # ✅ Import your router
 from backend.chatbot.chat import router as chat_router
@@ -17,3 +18,4 @@ app.add_middleware(
 
 # ✅ Attach router for chat functionality
 app.include_router(chat_router, prefix="/api")
+app.include_router(cree_router, prefix="/api")
